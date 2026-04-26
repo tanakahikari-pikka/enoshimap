@@ -31,8 +31,8 @@ function renderGrid() {
 onStateChange(renderGrid);
 
 document.getElementById('reset').addEventListener('click', () => {
-  if (confirm('進捗をリセットしますか?(FREEマス以外すべて未チェックに戻ります)')) {
-    for (let i = 0; i < 25; i++) checked[i] = (i === 12);
+  if (confirm('進捗をリセットしますか?(すべて未チェックに戻ります)')) {
+    for (let i = 0; i < 25; i++) checked[i] = false;
     saveState();
     notifyStateChange();
   }

@@ -22,7 +22,7 @@ const missions = [
 
   // Row 3: シーキャンドル
   { area: 'シーキャンドル', spot: '展望台',         icon: '🗻', title: '展望台からの絶景',       mission: '展望台から、富士山(または相模湾の水平線)を主役にした1枚を撮る。',                                            tip: '冬の朝が最もクリアに見える。',                coords: [35.29976, 139.47848] },
-  { area: 'FREE',           spot: '道中いつでも',   icon: '💞', title: '【FREE】二人のベストショット', mission: 'お互いを撮るのが一番でも、自撮りでもOK。「今日一番の笑顔」が条件。',                                  tip: 'このマスは最初から✓。撮影は道中いつでも。',  coords: [35.29985, 139.47900] },
+  { area: 'FREE',           spot: '道中いつでも',   icon: '💞', title: '【FREE】二人のベストショット', mission: 'お互いを撮るのが一番でも、自撮りでもOK。「今日一番の笑顔」が条件。',                                  tip: '撮影は道中いつでもOK。撮ったらこのマスをチェック。', coords: [35.29985, 139.47900] },
   { area: 'コッキング苑',   spot: 'コッキング苑',   icon: '🌷', title: '苑内の植物',             mission: 'コッキング苑内の花や植物を、二人のうち片方の指やシルエットと一緒に撮る。',                                    tip: '季節によってチューリップ/紫陽花/イルミと変わる。', coords: [35.29973, 139.47921] },
   { area: 'シーキャンドル', spot: '展望台',         icon: '🗾', title: '見下ろしの江ノ島',       mission: '展望台から見下ろした江ノ島の地形(参道や森)が分かる構図で撮影。',                                              tip: '北側を向くと弁天橋まで見える。',              coords: [35.29980, 139.47855] },
   { area: 'シーキャンドル', spot: 'シーキャンドル', icon: '🕯', title: 'シーキャンドル全景',     mission: 'シーキャンドルの真下から見上げ、塔の全身を画面に収める。',                                                    tip: '苑入口あたりから振り返ると全体が入る。',      coords: [35.29985, 139.47863] },
@@ -46,9 +46,7 @@ const missions = [
 const STORAGE_KEY = 'enoshima-bingo-v1';
 
 function defaultState() {
-  const arr = new Array(25).fill(false);
-  arr[12] = true; // FREEは最初から✓
-  return arr;
+  return new Array(25).fill(false);
 }
 
 function loadState() {
@@ -57,9 +55,7 @@ function loadState() {
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed) || parsed.length !== 25) return defaultState();
-    const normalized = parsed.map(v => !!v);
-    normalized[12] = true; // FREEは常に✓
-    return normalized;
+    return parsed.map(v => !!v);
   } catch (e) {
     return defaultState();
   }
