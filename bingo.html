@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>江ノ島カップル制覇ビンゴ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Klee+One:wght@400;600&family=Yuji+Syuku&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="side-deco">江島巡禮</div>
+    <div class="stamp">江島<br>制覇<br>之證</div>
+    <div class="title-jp">江ノ島制覇ビンゴ</div>
+    <div class="title-en">Enoshima Couple Bingo</div>
+    <div class="subtitle">入口から岩屋まで、二人で踏破せよ。<br>マスをタップして撮影ミッションを確認。</div>
+  </header>
+
+  <nav class="tab-nav">
+    <a href="index.html" class="tab-link">ホーム</a>
+    <a href="bingo.html" class="tab-link active">ビンゴ</a>
+    <a href="map.html" class="tab-link">マップ</a>
+    <a href="food.html" class="tab-link">グルメ</a>
+  </nav>
+
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>制覇進捗</span>
+      <span class="progress-count" id="count">0<span>/25</span></span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="fill" style="width: 0%"></div>
+    </div>
+    <div class="bingo-badges" id="badges">
+      <span class="badge" data-key="bingo">1ビンゴ</span>
+      <span class="badge" data-key="double">ダブルビンゴ</span>
+      <span class="badge" data-key="triple">トリプル</span>
+      <span class="badge blackout" data-key="blackout">全制覇</span>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="footer-actions">
+    <button class="reset-btn" id="reset">最初からやり直す</button>
+    <div class="legend">
+      タップ = 詳細表示 / ✓ = 撮影完了<br>
+      朱マス(中央) はFREE。最初から✓済み。
+    </div>
+  </div>
+</div>
+
+<!-- 詳細モーダル -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal">
+    <div class="modal-num" id="m-num">No. 01</div>
+    <div class="modal-area" id="m-area">Entrance</div>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-mission" id="m-mission"></div>
+    <div class="modal-tip" id="m-tip"></div>
+    <a class="modal-link" id="m-maplink" href="#" target="_blank" rel="noopener">📍 Googleマップで開く</a>
+    <button class="modal-btn btn-check" id="btn-check">撮影完了 ✓</button>
+    <button class="modal-btn btn-close" id="btn-close">閉じる</button>
+  </div>
+</div>
+
+<!-- 達成オーバーレイ -->
+<div class="celebration" id="celebration">
+  <div class="celebration-text" id="celeb-text">BINGO!</div>
+</div>
+
+<script src="shared.js"></script>
+<script src="bingo.js"></script>
+
+</body>
+</html>

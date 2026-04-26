@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>江ノ島ビンゴ - マップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Klee+One:wght@400;600&family=Yuji+Syuku&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="side-deco">江島地圖</div>
+    <div class="stamp">江島<br>地圖<br>之證</div>
+    <div class="title-jp">江ノ島マップ</div>
+    <div class="title-en">Enoshima Bingo Map</div>
+    <div class="subtitle">25のスポットを地図で確認。<br>ピンをタップしてミッションを見る・撮影完了をつける。</div>
+  </header>
+
+  <nav class="tab-nav">
+    <a href="index.html" class="tab-link">ホーム</a>
+    <a href="bingo.html" class="tab-link">ビンゴ</a>
+    <a href="map.html" class="tab-link active">マップ</a>
+    <a href="food.html" class="tab-link">グルメ</a>
+  </nav>
+
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>制覇進捗</span>
+      <span class="progress-count" id="count">0<span>/25</span></span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="fill" style="width: 0%"></div>
+    </div>
+    <div class="bingo-badges" id="badges">
+      <span class="badge" data-key="bingo">1ビンゴ</span>
+      <span class="badge" data-key="double">ダブルビンゴ</span>
+      <span class="badge" data-key="triple">トリプル</span>
+      <span class="badge blackout" data-key="blackout">全制覇</span>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="map-controls">
+    <button class="geo-btn" id="geo-btn">📍 現在地を表示</button>
+    <button class="geo-btn center" id="center-btn">江ノ島全体</button>
+  </div>
+
+  <div class="footer-actions">
+    <div class="legend">
+      朱ピン = 未撮影 / 藍ピン✓ = 撮影完了<br>
+      ピンをタップで詳細・「Googleマップで開く」で経路案内へ
+    </div>
+  </div>
+</div>
+
+<!-- 詳細モーダル（ビンゴページと同一） -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal">
+    <div class="modal-num" id="m-num">No. 01</div>
+    <div class="modal-area" id="m-area">Entrance</div>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-mission" id="m-mission"></div>
+    <div class="modal-tip" id="m-tip"></div>
+    <a class="modal-link" id="m-maplink" href="#" target="_blank" rel="noopener">📍 Googleマップで経路を開く</a>
+    <button class="modal-btn btn-check" id="btn-check">撮影完了 ✓</button>
+    <button class="modal-btn btn-close" id="btn-close">閉じる</button>
+  </div>
+</div>
+
+<!-- 達成オーバーレイ -->
+<div class="celebration" id="celebration">
+  <div class="celebration-text" id="celeb-text">BINGO!</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="shared.js"></script>
+<script src="map.js"></script>
+
+</body>
+</html>
