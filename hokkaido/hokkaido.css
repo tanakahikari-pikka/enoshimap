@@ -1,0 +1,215 @@
+/* =============================================
+   北海道版 追加スタイル (hokkaido/hokkaido.css)
+   shared.css の後に読み込む。共通スタイルはそのまま流用し、
+   ここでは「旅程タグ」「しおり(タイムライン)」の追加分だけ定義する。
+   ============================================= */
+
+/* ===== トップページ: 主役の名前を誕生日仕様に上書き ===== */
+/* shared.css の .yotsuba(緑+🍀) を、北海道の誕生日テーマへ差し替える */
+.top-hero .hero-sub .yotsuba {
+  color: var(--shu-deep);
+}
+
+.top-hero .hero-sub .yotsuba::after {
+  content: '🎂';
+}
+
+/* ===== グルメの旅程タグ ===== */
+.food-day {
+  align-self: center;
+  font-family: 'Klee One', sans-serif;
+  font-size: 0.72rem;
+  color: var(--ai);
+  background: rgba(31, 58, 95, 0.08);
+  border: 1px solid rgba(31, 58, 95, 0.2);
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+/* ===== しおり(旅程タイムライン) ===== */
+.shiori-intro {
+  text-align: center;
+  font-family: 'Klee One', sans-serif;
+  color: var(--sumi-soft);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin: 4px 16px 28px;
+}
+
+.shiori-day {
+  margin: 0 0 12px;
+}
+
+.shiori-day + .shiori-day {
+  margin-top: 32px;
+}
+
+.day-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, var(--ai) 0%, var(--ai-deep) 100%);
+  color: var(--washi);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 3px 10px rgba(20, 40, 63, 0.25);
+}
+
+.day-head .day-date {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+}
+
+.day-head .day-label {
+  font-family: 'Klee One', sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* タイムライン本体 */
+.timeline {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 18px 0 6px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 78px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(139, 26, 31, 0.35) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  padding: 0 8px 22px 0;
+}
+
+.tl-time {
+  text-align: right;
+  font-family: 'Klee One', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--shu-deep);
+  padding-top: 2px;
+}
+
+.tl-time small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: var(--sumi-soft);
+  opacity: 0.7;
+}
+
+.tl-body {
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(139, 26, 31, 0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(45, 40, 38, 0.06);
+}
+
+/* ノード(丸) */
+.tl-body::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--washi);
+  border: 3px solid var(--shu);
+  box-shadow: 0 0 0 3px rgba(244, 234, 213, 0.9);
+}
+
+.tl-item.pin .tl-body::before {
+  border-color: var(--ai);
+}
+
+.tl-title {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--sumi);
+  margin-bottom: 3px;
+}
+
+.tl-title .icon {
+  margin-right: 6px;
+}
+
+.tl-desc {
+  font-family: 'Klee One', sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--sumi-soft);
+}
+
+.tl-note {
+  margin-top: 8px;
+  font-family: 'Klee One', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--shu-deep);
+  background: rgba(193, 39, 45, 0.06);
+  border-left: 3px solid var(--shu);
+  border-radius: 0 6px 6px 0;
+  padding: 7px 10px;
+}
+
+.tl-links {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tl-link {
+  display: inline-block;
+  font-family: 'Klee One', sans-serif;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--ai);
+  background: rgba(31, 58, 95, 0.07);
+  border: 1px solid rgba(31, 58, 95, 0.2);
+  border-radius: 999px;
+  padding: 4px 12px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.tl-link:active {
+  background: rgba(31, 58, 95, 0.15);
+  transform: scale(0.97);
+}
+
+.tl-flight {
+  border-style: dashed;
+  border-color: rgba(31, 58, 95, 0.4);
+  background: rgba(31, 58, 95, 0.04);
+}
+
+.tl-flight .tl-title {
+  color: var(--ai-deep);
+}
+
+@media (max-width: 480px) {
+  .timeline::before { left: 62px; }
+  .tl-item { grid-template-columns: 50px 1fr; gap: 12px; }
+  .tl-time { font-size: 0.82rem; }
+}
