@@ -132,7 +132,8 @@ header {
 .tab-nav {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 4px 32px;
   margin: 4px 0 20px;
   border-bottom: 1px solid var(--washi-deep);
   padding-bottom: 0;
@@ -673,7 +674,8 @@ header {
   .container { padding: 16px 8px 60px; }
   .grid { gap: 4px; }
   .cell { padding: 4px 2px; }
-  .tab-nav { gap: 20px; }
+  .tab-nav { gap: 3px 16px; }
+  .tab-link { font-size: 14px; padding: 10px 5px; letter-spacing: 0.12em; }
   #map { height: 65vh; min-height: 400px; }
 }
 
